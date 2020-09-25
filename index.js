@@ -1,4 +1,5 @@
 const express = require('express');
+const url = require('url');
 
 const app = express();
 const port = process.env.PORT;
@@ -22,7 +23,8 @@ app.get('/alarm', (req, res) => {
 });
 
 app.put('/alarm', (req, res) => {
-    console.log(req);
+    const queryObj = url.parse(req.url, true).query;
+    console.log(queryObj);
     return res.json(create_output());
 });
 
