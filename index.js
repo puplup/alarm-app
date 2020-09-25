@@ -23,8 +23,8 @@ app.get('/alarm', (req, res) => {
 });
 
 app.put('/alarm', (req, res) => {
-    const queryObj = url.parse(req.url, true).query;
-    console.log(queryObj);
+    const urlObj = url.parse(req.url, true);
+    console.log(urlObj);
     return res.json(create_output());
 });
 
