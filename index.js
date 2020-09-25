@@ -4,6 +4,9 @@ const url = require('url');
 const app = express();
 const port = process.env.PORT;
 
+app.use(express.urlencoded());
+app.use(express.json());
+
 // Alarm variables
 const alarm = {
     state: false,
@@ -24,7 +27,7 @@ app.get('/alarm', (req, res) => {
 
 app.put('/alarm', (req, res) => {
 //     const urlObj = url.parse(req.url, true);
-    console.log(req.form);
+    console.log(req.body);
     return res.json(create_output());
 });
 
