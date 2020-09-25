@@ -37,7 +37,7 @@ app.put('/alarm', (req, res) => {
     const hour = Number(req.body.alarm_hour);
     const minute = Number(req.body.alarm_minute);
     
-    if !(isNaN(hour) or isNaN(minute)) {
+    if (!(isNaN(hour) || isNaN(minute))) {
         alarm.time.hour = hour;
         alarm.time.minute = minute;
     }
