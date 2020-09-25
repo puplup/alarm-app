@@ -28,6 +28,13 @@ app.get('/alarm', (req, res) => {
 app.put('/alarm', (req, res) => {
 //     const urlObj = url.parse(req.url, true);
     console.log(req.body);
+    
+    if (req.body.alarm_state == 'true') {
+        alarm.state = true;
+    } else if (req.body.alarm_state == 'false') {
+        alarm.state = false;
+    }
+    
     return res.json(create_output());
 });
 
