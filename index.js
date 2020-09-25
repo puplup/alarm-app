@@ -26,13 +26,20 @@ app.get('/alarm', (req, res) => {
 });
 
 app.put('/alarm', (req, res) => {
-//     const urlObj = url.parse(req.url, true);
     console.log(req.body);
     
     if (req.body.alarm_state == 'true') {
         alarm.state = true;
     } else if (req.body.alarm_state == 'false') {
         alarm.state = false;
+    }
+    
+    const hour = Number(req.body.alarm_hour);
+    const minute = Number(req.body.alarm_minute);
+    
+    if !(isNaN(hour) or isNaN(minute)) {
+        alarm.time.hour = hour;
+        alarm.time.minute = minute;
     }
     
     return res.json(create_output());
